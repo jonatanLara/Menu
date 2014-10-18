@@ -15,7 +15,9 @@ public class Paginas {
 
     public Paginas() {
     }
-
+    /**valida un String de tipo entero
+     * y retorna si es verdadero*/
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">  
     private static boolean validar(String cadena) {
         try {
             Integer.parseInt(cadena);
@@ -23,9 +25,12 @@ public class Paginas {
         } catch (NumberFormatException nfe) {
             return false;
         }
-    }
-
-    public static int llenado(int y) {
+    }// </editor-fold> 
+    /**resive los datos que son introducido por el usuario
+     y Validar si la cadena y lo convierte a Int, 
+     * si no es un entero lanza un mensaje de Numero No Valido*/
+     // <editor-fold defaultstate="collapsed" desc="Generated Code">  
+    public static  int llenado(int x) {
         int num = 0;
         String cad;
         cad = JOptionPane.showInputDialog(null, "Introdusca 12 paginas del 1-5", "Paginacion", JOptionPane.INFORMATION_MESSAGE);
@@ -33,28 +38,29 @@ public class Paginas {
             num = Integer.parseInt(cad);
         } else {
             JOptionPane.showMessageDialog(null, cad + "   Numero No Valido  \n Intentelo de Nuevo ", "ERROR", JOptionPane.ERROR_MESSAGE);
-            num = llenado(y);
+            num = llenado(x);
         }
         return num;
-    }
-
-    public static int reco(int v[], int a1, int b1, int c1, int d1) {
+    }// </editor-fold> 
+    /**recorre una matriz como parametro de tipo entero */
+    public static int reco(int Matriz[], int a1, int b1, int c1, int d1) {
         int b2 = 0, c2 = 0, d2 = 0, pos = 0;// todas mis posiciones son igual a 0 por default
         
-        for (int h = a1; h <= v.length - 1; h++) {
+        for (int i = a1; i <= Matriz.length - 1; i++) {
             //System.out.println("numero    : " +v[h]);
-            if (v[h] == b1) {
+            if (Matriz[i] == b1) {
                 b2++;
             }
-            if (v[h] == c1) {
+            if (Matriz[i] == c1) {
                 c2++;
             }
-            if (v[h] == d1) {
+            if (Matriz[i] == d1) {
                 d2++;
             }
         }
+        /**Si mis Valores de mi matriz son iguales a 0 */
         if (b2 == 0 && c2 == 0 && d2 == 0 || b2 != 0 && c2 != 0 && d2 != 0) {
-            pos = 3;
+            pos = 3;//quiere decir que tengo 3 casillas sean vacias o llenas (!= 0)
         }
         if (b2 == 0 && c2 == 0) {
             pos = 3;
@@ -70,6 +76,7 @@ public class Paginas {
                 pos = 3;
             }
         }
+        //pongo y ordeno las pociciones de mi matriz 
         if (b2 == 0) {
             pos = 0;
         }
@@ -80,7 +87,7 @@ public class Paginas {
             pos = 2;
         }
 //	System.out.println("numero    : " + pos);
-        return pos;
+        return pos;//retorno su posicion actual
     }
 
     public static String cadena() {
@@ -88,12 +95,12 @@ public class Paginas {
         int aux = 0, tope = 0, fin = 0, n = 0, a = 0, f = 0, au, band = 0;
 
         String salida1 = " ";
-        int alm[] = new int[12];
-        String FIFO[] = new String[3], FALLA[] = new String[12];
+        int alm[] = new int[12];//creo un arreglo de 12 espacios 
+        String FIFO[] = new String[3], FALLA[] = new String[12];//creo 2 arreglos uno de 3 y otro de 12 espacios 
         FIFO[0] = " ";
         FIFO[1] = "FIFO";
         FIFO[2] = " ";
-        int ve1[] = new int[3];
+        int ve1[] = new int[3];//creo 12 arreglos de 3 espacios cada uno y de tipo entero
         int ve2[] = new int[3];
         int ve3[] = new int[3];
         int ve4[] = new int[3];
@@ -105,14 +112,14 @@ public class Paginas {
         int ve10[] = new int[3];
         int ve11[] = new int[3];
         int ve12[] = new int[3];
-      //  System.out.println("------------SISTEMAS OPERATIVOS - - Paginacion \n Por:\n Por Chable Calderon Bonny\n Ku Olan Jair \n ");
-        System.out.println("ALMACENADO");
+     
+        System.out.println("ALMACENADO");//imprimo en la pantalla que esta almacenando
         for (int x = 0; x <= 11; x++) {
-            aux = llenado(n);
-            if (aux > 0 && aux <= 5) {
+            aux = llenado(n);//n es para guardar el entero que esta resiviendo el metodo llenando
+            if (aux > 0 && aux <= 5) {//verifico si mi datos esta entre 1 y 5 
                 System.out.print(aux + "  ");
-                alm[x] = aux;
-            } else {
+                alm[x] = aux;//almaceno los datos en mi arreglo de 12 alm[x] donde x es la posicion y lo guardo
+            } else {//encaso de que el dato no este entre 1 y 5 entoces desincremento a x(x--;) y mando un mensaje
                 JOptionPane.showMessageDialog(null, " DE 1 A 5", "ERROR ", JOptionPane.ERROR_MESSAGE);
                 x--;
             }
@@ -1046,7 +1053,7 @@ public class Paginas {
 
 ////////////////////////////////////////////////OPTIMO/////////////////////////////////////////////////////////////
         for (int x = 0; x <= 2; x++) {
-            ve1[x] = 0;
+            ve1[x] = 0;//recorre todos los vectores y los iguala a 0
             ve2[x] = 0;
             ve3[x] = 0;
             ve4[x] = 0;
@@ -2396,9 +2403,10 @@ public class Paginas {
         return salidon;
     }
 
+    /** Llama a imprimir los datos*/
     public void impresion() {
-        String sal = cadena();
-        System.out.println(sal);
+        String ImpresionDeSalida = cadena();
+        System.out.println(ImpresionDeSalida);
 
     }
 }
